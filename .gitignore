@@ -6,3 +6,5 @@
 !nvim/**
 !starship.toml
 
+wezterm/keybind.lua
+
