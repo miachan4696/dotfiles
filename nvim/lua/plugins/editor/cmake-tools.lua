@@ -18,7 +18,23 @@ return {
       { "<leader>cg", "<cmd>CMakeGenerate<cr>", desc = "CMake configure/generate" },
       { "<leader>cb", "<cmd>CMakeBuild<cr>", desc = "CMake build" },
       { "<leader>cr", "<cmd>CMakeRun<cr>", desc = "CMake run" },
-      { "<leader>cd", "<cmd>CMakeDebug<cr>", desc = "CMake debug" },
+      {
+        "<leader>cd",
+        function()
+          local cmake = require("cmake-tools")
+          local build_type = cmake.get_build_type()
+          if build_type ~= "Debug" and build_type ~= "RelWithDebInfo" then
+            vim.notify(
+              "Select Debug or RelWithDebInfo before starting CMake debug",
+              vim.log.levels.WARN
+            )
+            vim.cmd("CMakeSelectBuildType")
+            return
+          end
+          vim.cmd("CMakeDebug")
+        end,
+        desc = "CMake debug",
+      },
       { "<leader>cS", "<cmd>CMakeSelectConfigurePreset<cr>", desc = "CMake configure preset" },
       { "<leader>cT", "<cmd>CMakeSelectBuildTarget<cr>", desc = "CMake build target" },
     },
