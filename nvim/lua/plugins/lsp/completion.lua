@@ -11,7 +11,7 @@ return {
             { "mason-org/mason.nvim" },
         },
         opts = {
-            ensure_installed = { "ts_ls" },
+            ensure_installed = { "ts_ls", "clangd" },
             -- Enable installed Mason LSPs for their supported filetypes.
             automatic_enable = true,
         },
@@ -31,6 +31,17 @@ return {
                     "tsconfig.json",
                     "jsconfig.json",
                     "package.json",
+                    ".git",
+                },
+            })
+
+            vim.lsp.config("clangd", {
+                filetypes = { "c", "cpp", "objc", "objcpp", "cuda" },
+                root_markers = {
+                    "compile_commands.json",
+                    "compile_flags.txt",
+                    "CMakeLists.txt",
+                    ".clangd",
                     ".git",
                 },
             })
@@ -61,6 +72,14 @@ return {
         -- LSP must be enabled before the first FileType event.  VeryLazy is
         -- too late for a TSX file passed on the nvim command line.
         event = { "BufReadPre", "BufNewFile" },
+    },
+    {
+        "WhoIsSethDaniel/mason-tool-installer.nvim",
+        dependencies = { "mason-org/mason.nvim" },
+        opts = {
+            ensure_installed = { "clang-format" },
+        },
+        event = "VeryLazy",
     },
     {
         "saghen/blink.cmp",
