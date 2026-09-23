@@ -48,6 +48,7 @@
 | --- | --- |
 | `mason-org/mason.nvim` | 外部ツール管理 |
 | `mason-org/mason-lspconfig.nvim` | MasonとLSPの連携 |
+| `WhoIsSethDaniel/mason-tool-installer.nvim` | Masonツールの自動導入 |
 | `neovim/nvim-lspconfig` | LSP設定 |
 | `saghen/blink.cmp` | 補完 |
 | `rafamadriz/friendly-snippets` | スニペット集 |
@@ -102,6 +103,7 @@
 | `ysmb-wtsg/in-and-out.nvim` | 括弧内外移動 |
 | `akinsho/toggleterm.nvim` | ターミナル |
 | `stevearc/overseer.nvim` | タスク実行 |
+| `Civitasv/cmake-tools.nvim` | CMake configure/build/run/debug |
 | `michaelb/sniprun` | コード実行 |
 | `pwntester/octo.nvim` | GitHub Issue / PR操作 |
 | `nvim-lua/plenary.nvim` | 共通Luaライブラリ |
