@@ -39,7 +39,7 @@ require("lazy").setup({
     version = false,
   },
   install = {
-    colorscheme = { "kanagawa" },
+    colorscheme = { "catppuccin" },
   },
   checker = {
     enabled = false,

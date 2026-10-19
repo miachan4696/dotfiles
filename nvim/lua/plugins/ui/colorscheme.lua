@@ -2,8 +2,9 @@ return {
     {
         "catppuccin/nvim",
         name = "catppuccin",
+        lazy = false,
         priority = 1000,
-        enabled = false,
+        enabled = true,
         config = function()
             require("catppuccin").setup({
                 flavour = "mocha",
@@ -22,8 +23,9 @@ return {
     },    {
         "rebelot/kanagawa.nvim",
         name = "kanagawa", 
+        lazy = false,
         priority = 1000,
-        enabled = true, 
+        enabled = false, 
         config = function()
             require("kanagawa").setup({
                 transparent = true,
@@ -38,6 +40,5 @@ return {
             })
             vim.cmd.colorscheme("kanagawa")
         end,
-        lazy = false,
     },
 }

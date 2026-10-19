@@ -113,7 +113,7 @@ local function load(plugin)
 end
 
 local function project_root()
-  return vim.fs.root(0, {
+  return vim.fs.root(6, {
     ".git",
     "package.json",
     "tsconfig.json",
@@ -160,20 +160,25 @@ keymap("n", "<leader>/", snacks_picker("grep"), {
   desc = "Grep",
 })
 
-keymap("n", "<leader>fh", snacks_picker("help", {
-  win = {
-    input = {
-      keys = {
-        ["<CR>"] = {
-          "edit_vsplit",
-          mode = { "i", "n" },
+keymap(
+  "n",
+  "<leader>fh",
+  snacks_picker("help", {
+    win = {
+      input = {
+        keys = {
+          ["<CR>"] = {
+            "edit_vsplit",
+            mode = { "i", "n" },
+          },
         },
       },
     },
-  },
-}), {
-  desc = "Search help",
-})
+  }),
+  {
+    desc = "Search help",
+  }
+)
 
 keymap("n", "<leader>mp", function()
   load("snacks.nvim")

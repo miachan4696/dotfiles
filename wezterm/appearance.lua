@@ -7,7 +7,7 @@ local SOLID_RIGHT_ARROW = wezterm.nerdfonts.ple_upper_left_triangle
 function module.apply_config(config)
 
     -- Background style
-    config.window_background_opacity = 0.65
+    config.window_background_opacity = 0.8
     config.win32_system_backdrop = 'Acrylic'
     
     
