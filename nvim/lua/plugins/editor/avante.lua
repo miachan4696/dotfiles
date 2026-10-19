@@ -1,28 +1,50 @@
 return {
   "yetone/avante.nvim",
   event = "VeryLazy",
-  version = false, -- 常に最新を追従
+  version = false,
+
+  build = "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false",
+
   opts = {
     provider = "copilot",
+    mode = "agentic",
+
+    behaviour = {
+      use_cwd_as_project_root = true,
+      allow_access_to_git_ignored_files = true,
+    },
   },
-  keys = { "<leader>a", desc = "Avante" },
-  build = "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false", -- Windowsはこちらを使う
+
+  config = function(_, opts)
+    require("avante").setup(opts)
+  end,
+
+  keys = {
+    { "<leader>a", desc = "Avante" },
+  },
+
   dependencies = {
     "stevearc/dressing.nvim",
     "nvim-lua/plenary.nvim",
     "MunifTanjim/nui.nvim",
-    -- 以下はオプション
-    "nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
-    "zbirenbaum/copilot.lua", -- provider='copilot' に必要
-    {
-      "HakonHarnes/img-clip.nvim", -- 画像貼り付け対応
-    },
+    "nvim-tree/nvim-web-devicons",
+    "zbirenbaum/copilot.lua",
+
+    "HakonHarnes/img-clip.nvim",
+
     {
       "MeanderingProgrammer/render-markdown.nvim",
       opts = {
         file_types = { "markdown", "Avante" },
       },
       ft = { "markdown", "Avante" },
+    },
+
+    {
+      "ColinKennedy/mega.cmdparse",
+      dependencies = {
+        "ColinKennedy/mega.logging",
+      },
     },
   },
 }

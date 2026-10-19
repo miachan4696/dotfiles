@@ -36,7 +36,7 @@ keymap("i", "<C-i>", "<C-i>", opts)
 -- Increment / Decrement
 -- ============================================================================
 
-keymap("n", "+", "<C-a>", {
+keymap("n", "+", "<C-s>", {
   desc = "Increment number",
 })
 
