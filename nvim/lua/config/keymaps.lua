@@ -113,7 +113,7 @@ local function load(plugin)
 end
 
 local function project_root()
-  return vim.fs.root(6, {
+  return vim.fs.root(0, {
     ".git",
     "package.json",
     "tsconfig.json",
