@@ -4,6 +4,8 @@
 !wezterm/**
 !nvim/
 !nvim/**
+!WindowsPowerShell/
+!WindowsPowerShell/**
 !starship.toml
 
 wezterm/keybind.lua
